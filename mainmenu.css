@@ -27,11 +27,12 @@ nav li {
 nav a {
     text-decoration: none;
     color: #fff;
-    font-size: 18px;
-    padding: 10px;
+    font-size: 20px;
+    padding: 15px 20px; /* increased padding for better button appearance */
     background-color: #4caf50; /* Green button color */
-    border-radius: 5px;
+    border-radius: 25px; /* rounded corners */
     display: block; /* Change display to block */
+    transition: background-color 0.3s ease; /* smooth transition on hover */
 }
 
 nav a:hover {
