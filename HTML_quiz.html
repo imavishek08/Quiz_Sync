@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Languages Quiz</title>
+    <link rel="stylesheet" href="gkquiz.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>HTML Quiz</h1>
+        <div class="question">
+            <h2 id="questionNumber"></h2>
+            <p id="questionText"></p>
+            <ul class="options" id="optionsList">
+            </ul>
+        </div>
+        <button onclick="submitQuiz()">Submit</button>
+    </div>
+
+    <script>
+        // Define quiz questions and answers for coding languages
+        const codingQuizQuestions = [
+            {
+                question: "What does CSS stand for?",
+                options: ["Cascading Style Sheets", "Creative Style Sheets", "Computer Style Sheets", "Colorful Style Sheets"],
+                answer: "Cascading Style Sheets"
+            },
+            {
+                question: "Which programming language is often used for backend web development?",
+                options: ["HTML", "CSS", "JavaScript", "Python"],
+                answer: "Python"
+            },
+            {
+                question: "What does HTML stand for?",
+                options: ["Hypertext Markup Language", "Hyperlinks and Text Markup Language", "Hyper Tool Markup Language", "Hypertext Markdown Language"],
+                answer: "Hypertext Markup Language"
+            },
+            {
+                question: "What is the latest version of HTML?",
+                options: ["HTML4", "HTML5", "XHTML", "XML"],
+                answer: "HTML5"
+            },
+            {
+                question: "Which HTML tag is used for creating a line break?",
+                options: ["<br>", "<lb>", "<break>", "<newline>"],
+                answer: "<br>"
+            },
+            {
+                question: "What is the correct way to comment out code in HTML?",
+                options: ["<!-- comment -->", "// comment", "# comment", "// comment //"],
+                answer: "<!-- comment -->"
+            },
+            {
+                question: "Which HTML element is used to define the structure of an HTML document?",
+                options: ["<html>", "<body>", "<head>", "<title>"],
+                answer: "<html>"
+            },
+            {
+                question: "What is the purpose of the HTML 'meta' tag?",
+                options: ["To define a title for the document", "To define metadata about the document", "To define the main content of the webpage", "To define a header for the document"],
+                answer: "To define metadata about the document"
+            },
+            {
+                question: "Which HTML attribute is used to specify the URL of the page the link goes to?",
+                options: ["url", "src", "link", "href"],
+                answer: "href"
+            },
+            {
+                question: "What is the correct way to create an unordered list in HTML?",
+                options: ["<ul>", "<ol>", "<li>", "<list>"],
+                answer: "<ul>"
+            },
+            {
+                question: "Which HTML tag is used to define the main content of a webpage?",
+                options: ["<content>", "<main>", "<body>", "<section>"],
+                answer: "<main>"
+            },
+            {
+                question: "What is the purpose of the HTML 'title' element?",
+                options: ["To define a title for a section in a document", "To specify the color of text", "To define a title for the document", "To define the main content of the webpage"],
+                answer: "To define a title for the document"
+            },
+            {
+                question: "Which HTML element is used to create a hyperlink?",
+                options: ["<a>", "<link>", "<href>", "<hyperlink>"],
+                answer: "<a>"
+            },
+            {
+                question: "What is the purpose of the HTML 'head' element?",
+                options: ["To define the main content of the webpage", "To define a header for the document", "To contain metadata about the document", "To define a title for the document"],
+                answer: "To contain metadata about the document"
+            },
+            {
+                question: "Which HTML attribute specifies an alternate text for an image?",
+                options: ["src", "alt", "title", "href"],
+                answer: "alt"
+            },
+            {
+                question: "What is the correct way to create an ordered list in HTML?",
+                options: ["<ul>", "<ol>", "<li>", "<list>"],
+                answer: "<ol>"
+            },
+            {
+                question: "What does the 'DOCTYPE' declaration in HTML do?",
+                options: ["Specifies the alignment of the image", "Specifies the size of the image", "Specifies the document type and version of HTML", "Specifies an alternate text for an image"],
+                answer: "Specifies the document type and version of HTML"
+            },
+            {
+                question: "Which HTML element is used to define the body of the document?",
+                options: ["<body>", "<head>", "<main>", "<document>"],
+                answer: "<body>"
+            },
+            {
+                question: "What is the correct way to create a table in HTML?",
+                options: ["<table>", "<tr>", "<td>", "<th>"],
+                answer: "<table>"
+            },
+            {
+                question: "Which HTML element is used to define the footer of a webpage?",
+                options: ["<footer>", "<end>", "<bottom>", "<section>"],
+                answer: "<footer>"
+            }
+
+
+
+
+        ];
+
+        let questionIndex = 0;
+        let correctAnswers = 0;
+
+        // Function to load next question
+        function loadNextQuestion() {
+            if (questionIndex < codingQuizQuestions.length) {
+                const currentQuestion = codingQuizQuestions[questionIndex];
+                document.getElementById("questionNumber").textContent = "Question " + (questionIndex + 1);
+                document.getElementById("questionText").textContent = currentQuestion.question;
+                const optionsList = document.getElementById("optionsList");
+                optionsList.innerHTML = "";
+                currentQuestion.options.forEach((option, index) => {
+                    const li = document.createElement("li");
+                    const label = document.createElement("label");
+                    label.innerHTML = `<input type="radio" name="answer" value="${option}">${option}`;
+                    li.appendChild(label);
+                    optionsList.appendChild(li);
+                });
+            } else {
+                window.location.href = "quiz_completed.html?correctAnswers=" + correctAnswers + "&totalQuestions=" + codingQuizQuestions.length; // Redirect to quiz completion page with query parameters
+            }
+        }
+
+        // Function to submit quiz
+        function submitQuiz() {
+            const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+            if (!selectedAnswer) {
+                alert("Please select an answer.");
+                return;
+            }
+            const userAnswer = selectedAnswer.value;
+            const correctAnswer = codingQuizQuestions[questionIndex].answer;
+            if (userAnswer === correctAnswer) {
+                correctAnswers++;
+            }
+            questionIndex++;
+            loadNextQuestion();
+        }
+
+        // Load the first question when the page loads
+        window.onload = function () {
+            loadNextQuestion();
+        };
+    </script>
+</body>
+
+</html>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Languages Quiz</title>
     <link rel="stylesheet" href="gkquiz.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Coding Languages Quiz</h1>
@@ -19,7 +21,7 @@
     </div>
 
     <script>
-        // Define quiz questions and answers for coding languages
+       
         const codingQuizQuestions = [
             {
                 question: "What is the capital of Python?",
@@ -36,7 +38,7 @@
                 options: ["C", "C++", "Assembly", "FORTRAN"],
                 answer: "Assembly"
             },
-            // Add 17 more questions similarly
+            
             {
                 question: "Which programming language was created by Guido van Rossum?",
                 options: ["Ruby", "Python", "Perl", "Java"],
@@ -47,18 +49,43 @@
                 options: ["Creative Style Sheets", "Cascading Style Sheets", "Computer Style Sheets", "Colorful Style Sheets"],
                 answer: "Cascading Style Sheets"
             },
+
             {
                 question: "Which language is used for building dynamic and interactive websites?",
                 options: ["CSS", "JavaScript", "HTML", "Python"],
                 answer: "JavaScript"
             },
-            // Add more questions similarly
+            {
+                question: "What does CSS stand for?",
+                options: ["Cascading Style Sheets", "Creative Style Sheets", "Computer Style Sheets", "Colorful Style Sheets"],
+                answer: "Cascading Style Sheets"
+            },
+            {
+                question: "Which programming language is often used for backend web development?",
+                options: ["HTML", "CSS", "JavaScript", "Python"],
+                answer: "Python"
+            },
+            {
+                question: "What does HTML stand for?",
+                options: ["Hypertext Markup Language", "Hyperlinks and Text Markup Language", "Hyper Tool Markup Language", "Hypertext Markdown Language"],
+                answer: "Hypertext Markup Language"
+            },
+           
+            
+            {
+                question: "Which HTML element is used to define the footer of a webpage?",
+                options: ["<footer>", "<end>", "<bottom>", "<section>"],
+                answer: "<footer>"
+            }
+
+
+
         ];
 
         let questionIndex = 0;
         let correctAnswers = 0;
 
-        // Function to load next question
+       
         function loadNextQuestion() {
             if (questionIndex < codingQuizQuestions.length) {
                 const currentQuestion = codingQuizQuestions[questionIndex];
@@ -78,7 +105,7 @@
             }
         }
 
-        // Function to submit quiz
+        
         function submitQuiz() {
             const selectedAnswer = document.querySelector('input[name="answer"]:checked');
             if (!selectedAnswer) {
@@ -94,10 +121,10 @@
             loadNextQuestion();
         }
 
-        // Load the first question when the page loads
-        window.onload = function() {
+        window.onload = function () {
             loadNextQuestion();
         };
     </script>
 </body>
+
 </html>
