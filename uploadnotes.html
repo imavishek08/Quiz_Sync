@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Notes</title>
+    <link rel="stylesheet" href="dunotes.css">
+</head>
+<body>
+    <div class="container">
+        <h1>QuizSync</h1>
+        <div class="search-bar">
+            <label for="courseSelect">Course:</label>
+            <select id="courseSelect" required>
+                <option value="" disabled selected>Select a course</option>
+                <option value="BCA">BCA</option>  
+            </select>
+            
+            <label for="subjectSelect">Subject:</label>
+            <select id="subjectSelect" required>
+                <option value="" disabled selected>Select a subject</option>
+                <option value="linearAlgebra">Linear Algebra</option>
+                <option value="oss">Open Source Software</option>
+                <option value="vb.net">VB.NET</option>
+            </select>
+            
+            <label for="semesterSelect">Semester:</label>
+            <select id="semesterSelect" required>
+                <option value="" disabled selected>Select a semester</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+
+            <label for="fileInput">Upload Notes (PDF only):</label>
+            <input type="file" id="fileInput" accept=".pdf" required>
+
+            <button type="submit">Upload Notes</button>
+        </div>
+    </div>
+
+    <script src="uploadnotes.js"></script>
+</body>
+</html>

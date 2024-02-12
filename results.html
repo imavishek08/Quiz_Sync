@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Files</title>
+    <link rel="stylesheet" href="results.css">
+</head>
+<body>
+    <h1>List of PDF Files</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>File Name</th>
+            </tr>
+        </thead>
+        <tbody id="pdfList">
+            <!-- PDF files will be dynamically inserted here -->
+        </tbody>
+    </table>
+    <script src="downloadnotes.js"></script>
+
+    <script>
+        // Function to fetch PDF files from the server
+        async function fetchPDFFiles() {
+            try {
+                const response = await fetch('/pdfs');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch PDF files');
+                }
+                const data = await response.json();
+                displayPDFFiles(data.pdfFiles);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        // Function to display PDF files in the table
+        function displayPDFFiles(pdfFiles) {
+            const pdfList = document.getElementById('pdfList');
+            pdfList.innerHTML = ''; // Clear existing content
+            pdfFiles.forEach(file => {
+                const row = document.createElement('tr');
+                const cell = document.createElement('td');
+                const link = document.createElement('a');
+                link.href = `/uploads/${file}`;
+                link.textContent = file;
+                link.target = '_blank'; // Open the PDF file in a new tab
+                cell.appendChild(link);
+                row.appendChild(cell);
+                pdfList.appendChild(row);
+            });
+        }
+
+        // Call the fetchPDFFiles function when the page loads
+        window.addEventListener('load', fetchPDFFiles);
+    </script>
+</body>
+</html>
+
+
+

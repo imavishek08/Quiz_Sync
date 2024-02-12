@@ -1,0 +1,50 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #3498db; /* Blue background color */
+    color: #fff; /* White text color */
+}
+
+.container {
+    text-align: center;
+    animation: fadeInUp 2s ease-in-out; /* Add animation */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav li {
+    margin-bottom: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    background-color: #4caf50; /* Green button color */
+    border-radius: 5px;
+    display: inline-block;
+}
+
+nav a:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
