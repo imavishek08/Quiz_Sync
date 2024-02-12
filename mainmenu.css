@@ -21,7 +21,7 @@ nav ul {
 }
 
 nav li {
-    margin-bottom: 10px;
+    margin-bottom: 20px; /* Increased margin between buttons */
 }
 
 nav a {
