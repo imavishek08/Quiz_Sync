@@ -1,6 +1,6 @@
 # Quiz_Sync
 Project Report: Quiz Sync
-Made by : Abhishek Sharma,Pooja pandit, Aakansha Sharma (BCA Department) MAM College Jammu
+Made by : avi
 Overview:
 Quiz Sync is a web application designed to facilitate quiz-based learning. It offers users a platform to engage with quizzes on a variety of topics, ranging from general coding to specific domains like computer science, HTML, and data structures and algorithms. The primary goal of Quiz Sync is to provide an interactive and educational experience for users interested in testing and expanding their knowledge in these areas.
 
